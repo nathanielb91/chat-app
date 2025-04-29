@@ -1,0 +1,39 @@
+$background-color: #0582FF;
+
+.message-input {
+  display: flex;
+  align-items: center;
+  padding: 12px 24px;
+  background-color: white;
+  border-top: 1px solid #ddd;
+  gap: 12px;
+}
+
+#message {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 999px;
+  outline: none;
+  font-size: 1rem;
+}
+
+#message:focus {
+  border-color: #646cff;
+}
+
+.message-send {
+  background-color: #646cff;
+  color: white;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.message-send:hover {
+  background-color: #4e57cc;
+}
