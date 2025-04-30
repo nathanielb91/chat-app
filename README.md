@@ -76,3 +76,10 @@ Namespace: /my-code-challenge-namespace
 - Chat messages persist across reloads for 1 hour
 - Input validation with animated error messages
 - Mobile-responsive layout
+
+## Scale & Security Thoughts (Looking ahead)
+
+If this project were to grow or go into production, I'd focus on:
+
+- **Scalability:** Replace the hardcoded single-room setup with dynamic rooms and user sessions, backed by a real-time database (like Firebase or Redis) for syncing messages across clients and devices.
+- **Security:** Add server-side validation and rate limiting to prevent spam or abuse. On the client side, introduce authenticated sessions (JWT or OAuth) and sanitize user input to avoid injection or XSS attacks.
