@@ -6,7 +6,7 @@ This project is a sleek, modern real-time chat app built with **React**, **Socke
 
 ## Reasoning & Approach
 
-My goal was to build a clean, responsive user experience while following the outlined requirements. I chose **React Context** instead of Redux to keep the global state simple and lightweight — perfect for the scale of this app. I also made sure to:
+My goal was to build a clean, responsive user experience while following the outlined requirements. I chose **React Context** instead of Redux to keep the global state simple and lightweight. I also made sure to:
 
 - Centralize session state and socket logic in one context (`session.tsx`)
 - Persist chat and username in localStorage with an expiration mechanism
