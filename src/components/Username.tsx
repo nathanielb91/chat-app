@@ -4,16 +4,23 @@ import "./Username.scss";
 
 function Username() {
   const { dispatch } = useContext(SessionContext);
+
+  // Local state to track username input and whether user has interacted with it
   const [username, setUsername] = useState("");
   const [touched, setTouched] = useState(false);
 
+  // validation: letters, numbers, underscores, 1–15 chars
   const isValid = /^[a-zA-Z0-9_]{1,15}$/.test(username);
   const showError = touched && !isValid;
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const trimmed = username.trim();
+
+    // Don’t proceed if name is invalid/empty
     if (!isValid || !trimmed) return;
+
+    // Store username in context
     dispatch({ type: "SET_USERNAME", payload: trimmed });
   };
 

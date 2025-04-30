@@ -18,6 +18,7 @@ type SessionState = {
   socket: Socket | null;
 };
 
+// Reducer action types
 type Action =
   | { type: "SET_USERNAME"; payload: string }
   | { type: "ADD_MESSAGE"; payload: ChatMessage }
@@ -29,6 +30,7 @@ const initialState: SessionState = {
   socket: null,
 };
 
+// Reducer function to manage state updates
 function sessionReducer(state: SessionState, action: Action): SessionState {
   switch (action.type) {
     case "SET_USERNAME": {
@@ -51,12 +53,13 @@ function sessionReducer(state: SessionState, action: Action): SessionState {
   }
 }
 
-
+// Global context to provide state + dispatch across app
 export const SessionContext = createContext<{
   state: SessionState;
   dispatch: React.Dispatch<Action>;
 }>({ state: initialState, dispatch: () => null });
 
+// Context provider to wrap app and manage socket/messages/session
 export const SessionProvider = ({ children }: { children: React.ReactNode }) => {
   const [state, dispatch] = useReducer(sessionReducer, initialState);
 
@@ -66,6 +69,7 @@ export const SessionProvider = ({ children }: { children: React.ReactNode }) => 
       dispatch({ type: "SET_USERNAME", payload: storedUsername });
     }
 
+    // Restore previous chat messages if they're under 1hr old
     const storedMessages = getLocalStorage<ChatMessage[]>("chat-messages");
     const timestamp = getLocalStorage<number>("chat-messages-timestamp");    
     const isExpired = timestamp && Date.now() - timestamp > 1000 * 60 * 60;
@@ -80,7 +84,7 @@ export const SessionProvider = ({ children }: { children: React.ReactNode }) => 
       }
     }
     
-
+    // Set up socket connection
     const manager = new Manager("https://code-challenge.brandlive-dev.com", {
       transports: ["websocket"],
       multiplex: true,
@@ -91,6 +95,7 @@ export const SessionProvider = ({ children }: { children: React.ReactNode }) => 
       console.log("Connected to server");
     });
 
+    // Listen for incoming messages and dispatch them to state
     socket.on("message", (data) => {
       if (typeof data === "string") {
         const sender = data.split(":")[0];
@@ -102,6 +107,7 @@ export const SessionProvider = ({ children }: { children: React.ReactNode }) => 
       }
     });
 
+    // Store socket in global state
     dispatch({ type: "SET_SOCKET", payload: socket });
 
     return () => {

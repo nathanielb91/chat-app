@@ -3,12 +3,13 @@ import { SessionContext } from "../contexts/session";
 import Message from "../components/Message";
 import MessageInput from "../components/MessageInput";
 import "./Chat.scss";
-import {
-  removeLocalStorage
-} from "../lib/storage";
+import { removeLocalStorage } from "../lib/storage";
 
 function Chat() {
+  // Get current app state (username, messages, socket) from context
   const { state } = useContext(SessionContext);
+
+  // Ref for auto scroll
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const handleLogout = () => {
@@ -16,7 +17,7 @@ function Chat() {
     window.location.reload();
   };
   
-
+  // Auto scroll chat to the newest message whenever messages update
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [state.messages]);

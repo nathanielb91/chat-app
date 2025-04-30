@@ -8,7 +8,11 @@ function MessageInput() {
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Don't send empty messages or if socket/user isn’t set up
     if (!value.trim() || !state.socket || !state.username) return;
+
+    // Emit the message through the socket
     state.socket.emit("message", `${state.username}: ${value}`);
     setValue("");
   };
