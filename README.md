@@ -74,3 +74,23 @@ My goal was to build a clean, responsive user experience while following the out
 ```bash
 npm install
 ```
+
+### 2. Run the development server
+
+```bash
+npm run dev
+```
+
+### 3. Build for production
+
+```bash
+npm run build
+```
+
+## Running Unit Tests
+
+This project uses **Jest** and **React Testing Library**
+
+```bash
+npm test
+```
