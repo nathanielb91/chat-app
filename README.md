@@ -108,5 +108,14 @@ npm test
 No .env file is needed. Socket config is hardcoded as:
 
 ```ts
-npm test
+Host: https://code-challenge.brandlive-dev.com
+Namespace: /my-code-challenge-namespace
 ```
+
+## UX Features & Extras
+
+- Gradient background + entry animations
+- Smart message styling with "own" vs "other" message bubbles
+- Chat messages persist across reloads for 1 hour
+- Input validation with animated error messages
+- Mobile-responsive layout
