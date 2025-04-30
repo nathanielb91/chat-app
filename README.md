@@ -47,7 +47,7 @@ This project is a sleek, modern real-time chat app built with **React**, **Socke
 
 ---
 
-## 🧠 Reasoning & Approach
+## Reasoning & Approach
 
 My goal was to build a clean, responsive user experience while following the outlined requirements. I chose **React Context** instead of Redux to keep the global state simple and lightweight — perfect for the scale of this app. I also made sure to:
 
@@ -58,7 +58,7 @@ My goal was to build a clean, responsive user experience while following the out
 
 ---
 
-## ✂️ Shortcuts & Tradeoffs
+## Shortcuts & Tradeoffs
 
 - No user authentication (by design for this exercise), so all usernames are client-trusted
 - No server-side filtering or rate-limiting for messages
@@ -67,7 +67,7 @@ My goal was to build a clean, responsive user experience while following the out
 
 ---
 
-## ⚙️ Setup Instructions
+## Setup Instructions
 
 ### 1. Install dependencies
 
@@ -87,10 +87,26 @@ npm run dev
 npm run build
 ```
 
+---
+
 ## Running Unit Tests
 
 This project uses **Jest** and **React Testing Library**
 
 ```bash
+npm test
+```
+
+**Included test coverage:**
+
+- Username component: input validation, error display, submit button logic
+- MessageInput component: send behavior, input clearing
+- validation.ts: regex utility for validating usernames
+
+## Environment Variables
+
+No .env file is needed. Socket config is hardcoded as:
+
+```ts
 npm test
 ```
