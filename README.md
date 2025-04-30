@@ -60,6 +60,8 @@ npm test
 - MessageInput component: send behavior, input clearing
 - validation.ts: regex utility for validating usernames
 
+---
+
 ## Environment Variables
 
 No .env file is needed. Socket config is hardcoded as:
@@ -69,6 +71,8 @@ Host: https://code-challenge.brandlive-dev.com
 Namespace: /my-code-challenge-namespace
 ```
 
+---
+
 ## UX Features & Extras
 
 - Gradient background + entry animations
@@ -76,6 +80,8 @@ Namespace: /my-code-challenge-namespace
 - Chat messages persist across reloads for 1 hour
 - Input validation with animated error messages
 - Mobile-responsive layout
+
+---
 
 ## Scale & Security Thoughts (Looking ahead)
 
