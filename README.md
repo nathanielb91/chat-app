@@ -1,4 +1,4 @@
-# Real-Time Chat App – Brandlive Code Challenge
+# Real-Time Chat App
 
 This project is a sleek, modern real-time chat app built with **React**, **Socket.IO**, and **SCSS**, with global state management via **React Context + useReducer**. It allows users to join a public chat room, send and receive messages in real time, and retain message history for up to one hour.
 
